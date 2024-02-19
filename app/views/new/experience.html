@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'How many years of UX design experience you have? ' %}
+{% set pageName = 'How many year of experience you have in UX Design?' %}
 
 {% block beforeContent %}
 
@@ -19,15 +19,11 @@
 
 
 
- 
-
-
-
 <form novalidate method="post">
 
 {{ govukRadios({
-  name: "[new][yearsOfExperince]",
-  id: "[new][yearsOfExperince]",
+  name: "[new][yearsOfExperience]",
+  id: "[new][yearsOfExperience]",
   fieldset: {
     legend: {
       text: pageName,
@@ -38,8 +34,8 @@
   value: data.new.yearsOfExperience,
   items: [
     {
-      value: "One to three ",
-      text: "One to three "
+      value: "One or more",
+      text: "One or more"
     },
     {
       value: "Three or more",
@@ -49,13 +45,10 @@
       value: "None",
       text: "None"
     }
-
   ]
 }) }}
-
-
-
  
+
 
 {{ govukButton({
   text: "Continue"
