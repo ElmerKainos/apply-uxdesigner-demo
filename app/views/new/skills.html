@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'PLACEHOLDER' %}
+{% set pageName = 'What are you most impresive skills?' %}
 
 {% block beforeContent %}
 
@@ -20,6 +20,23 @@
 
 
 <form novalidate method="post">
+
+  {{ govukCharacterCount({
+    name: "[new][skills]",
+    id: "[new][skills]",
+    label: {
+      text: pageName,
+      isPageHeading: true,
+      classes: "govuk-label--l"
+    },
+   maxwords: 200,
+    value: data.new.skills
+  }) }}
+
+
+
+
+
 
 
 
