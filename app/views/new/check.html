@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'Your email address' %}
+{% set pageName = 'What are your skills?' %}
 
 {% block beforeContent %}
 
@@ -16,21 +16,20 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-<form novalidate method="post"> 
-{{ govukInput({
-  id: "[new][emailAddress]",
-  name: "[new][emailAddress]",
-  label: {
-    text: pageName,
-    isPageHeading: true, 
-    classes: "govuk-label--l"
-  },
- 
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false ,
- value: data.new.emailAddress
-}) }}
+
+
+
+<form novalidate method="post">
+{%set otherInput %}
+
+
+
+
+
+
+
+{% endset %}
+
 
 
 
@@ -42,7 +41,16 @@
 {{ govukButton({
   text: "Continue"
 }) }}
-  
+
+
+
+
+
+
+
+
+
+
 </form>
   
 
