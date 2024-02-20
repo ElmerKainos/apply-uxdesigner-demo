@@ -34,8 +34,14 @@ router.post ('/new/name', (req,res)  => {
     res.redirect ('/new/not-eligible')
 
  } else {
-    res.redirect ('/new/skills')
+    res.redirect ('/new/expertise')
     }
+    
+})
+
+router.post ('/new/expertise', (req,res)  => {
+
+    res.redirect ('/new/skills')
     
 })
 

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'What are you most impresive skills?' %}
+{% set pageName = 'What are your skills?' %}
 
 {% block beforeContent %}
 
@@ -20,23 +20,64 @@
 
 
 <form novalidate method="post">
+{%set otherInput %}
 
-  {{ govukCharacterCount({
-    name: "[new][skills]",
-    id: "[new][skills]",
-    label: {
+{{ govukInput({
+  id: "[new][otherObject]",
+  name: "[new][otherObject]",
+  label: {
+    text: "Other",
+    isPageHeading: true,
+    classes: "govuk-label--s"
+  },
+ 
+  value: data.new.otherObject
+}) }}
+
+
+
+
+
+{% endset %}
+
+
+
+
+{{ govukCheckboxes({
+  name: "[new][skills]",
+  id: "[new][skills]",
+  fieldset: {
+    legend: {
       text: pageName,
       isPageHeading: true,
-      classes: "govuk-label--l"
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  values: data.new.skills,
+  items: [
+    {
+      value: "Interaction Design (IxD)",
+      text: "Interaction Design (IxD)"
     },
-   maxwords: 200,
-    value: data.new.skills
-  }) }}
-
-
-
-
-
+    {
+      value: "User Research (UR)",
+      text: "User Research (UR)"
+    },
+    {
+      value: "Information Arcticture",
+      text: "Information Arcitecture"
+    },
+    {
+      value: "Other",
+      text: "Other",
+      conditional : {
+          html: otherInput }
+    }
+  ]
+}) }}
 
 
 
