@@ -10,10 +10,14 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 router.post ('/new/email', (req,res) => {
-    if(req.query.returnUrl) {
+    if (req.query.returnUrl){
         res.redirect(req.query.returnUrl)
-            } else {
-    res.redirect('/new/code')}
+    }
+   else {
+     res.redirect ('/new/code')
+   }
+        
+          
 })
 
 router.post ('/new/code', (req,res)  => {
@@ -23,9 +27,16 @@ router.post ('/new/code', (req,res)  => {
 })
     
 router.post ('/new/name', (req,res)  => {
+    if (req.query.returnUrl){
+        res.redirect(req.query.returnUrl)
 
+
+    }
+else{
         res.redirect ('/new/experience')
+     
         
+}
  })
 
 
@@ -49,6 +60,12 @@ router.post ('/new/expertise', (req,res)  => {
 router.post ('/new/skills', (req,res)  => {
 
     res.redirect ('/new/check')
+    
+})
+
+router.post ('/new/check', (req,res)  => {
+
+    res.redirect ('/new/confirmation')
     
 })
 

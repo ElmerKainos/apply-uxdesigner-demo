@@ -27,7 +27,6 @@
 {% if item == 'Other'  %}
 
 -{{data.new.otherObject}}
-
 {% endif  %}
   </li>
  {% endfor %}
@@ -54,7 +53,7 @@
       actions: {
         items: [
           {
-            href: "/new/email",
+            href: "/new/email?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: "Your email address"
           }
@@ -71,7 +70,7 @@
       actions: {
         items: [
           {
-            href: "/new/name",
+            href: "/new/name?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: "Your name"
           }
@@ -88,7 +87,7 @@
       actions: {
         items: [
           {
-            href: "/new/experience",
+            href: "/new/experience?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: "the  years of experience you have in UX Design"
           }
@@ -132,13 +131,13 @@
   ]
 }) }}
 
-
+<p>By submitting this application you're confirming, that to the best of your knowledge, the details you provided are correct.</p>
 
 
 <form novalidate method="post">
 
 {{ govukButton({
-  text: "Continue"
+  text: "Accept and send application"
 }) }}
 
 
