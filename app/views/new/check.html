@@ -19,31 +19,27 @@
 
     <h1 class="govuk-heading-l"> {{pageName}}</h1>
 
+{% set skillsObjects %}
+<ul class="govuk-list govuk-list--bullet">
+{% for item in data.new.skills %}
+  <li>
+    {{item}}
+{% if item == 'Other'  %}
 
- {% set skillsObjects %}
+-{{data.new.otherObject}}
 
-<ul class="govuk-list govuk-list--bullet ">
-
-{% for item in  data.new.skills %}
- <li>
-   {{item}}
- 
- {%   if item == 'Other'  %}
-
-- {{data.new.otherObject}}
-
-{%  endif %}
-
-</li>
-  {% endfor %}
+{% endif  %}
+  </li>
+ {% endfor %}
 </ul>
 
 
 
 
+{% endset%}
 
 
-{%  endset  %}
+
 
 
 {{ govukSummaryList({
@@ -60,7 +56,7 @@
           {
             href: "/new/email",
             text: "Change",
-            visuallyHiddenText: "Change your email address"
+            visuallyHiddenText: "Your email address"
           }
         ]
       }
@@ -77,7 +73,7 @@
           {
             href: "/new/name",
             text: "Change",
-            visuallyHiddenText: "Change your name"
+            visuallyHiddenText: "Your name"
           }
         ]
       }
@@ -94,7 +90,7 @@
           {
             href: "/new/experience",
             text: "Change",
-            visuallyHiddenText: "Change the years of your experience"
+            visuallyHiddenText: "the  years of experience you have in UX Design"
           }
         ]
       }
@@ -109,26 +105,26 @@
       actions: {
         items: [
           {
-            href: "/new/experstise",
+            href: "/new/expertise",
             text: "Change",
-            visuallyHiddenText: "Change the area of your expertise"
+            visuallyHiddenText: "the area of your expertise"
           }
         ]
       }
-    },
+    } ,
     {
       key: {
         text: "What are your skills?"
       },
       value: {
-        html :skillsObjects
+        html: skillsObjects
       },
       actions: {
         items: [
           {
             href: "/new/skills",
             text: "Change",
-            visuallyHiddenText: "Change your skills"
+            visuallyHiddenText: "your skills"
           }
         ]
       }
@@ -137,20 +133,12 @@
 }) }}
 
 
-<p>I confirm to my best knowledge the informations are the the most accurate.</p>
-
-
-
 
 
 <form novalidate method="post">
 
-
-
-
-
 {{ govukButton({
-  text: "Accept and send application"
+  text: "Continue"
 }) }}
 
 
